@@ -25,13 +25,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 42px 0;
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-      flex-wrap: wrap;
     }
 
     .nav-left {
+      position: absolute;
+      left: 40px;
       display: flex;
       gap: 20px;
     }
@@ -51,19 +52,10 @@
       font-weight: bold;
       font-size: 1.4rem;
       color: white;
-    }
-
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-      }
-
-      .nav-left {
-        flex-direction: row;
-        margin-top: 10px;
-      }
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
     }
 
     header {
@@ -107,6 +99,10 @@
       .grid-projects {
         grid-template-columns: 1fr;
       }
+
+      .project-card img {
+        height: 200px;
+      }
     }
 
     .project-card {
@@ -121,10 +117,8 @@
 
     .project-card img {
       width: 100%;
-      height: auto;
-      aspect-ratio: 16 / 9;
+      height: 500px;
       object-fit: cover;
-      border-radius: 8px;
     }
 
     .project-info {
@@ -174,11 +168,11 @@
 </head>
 <body>
   <nav>
-    <div class="logo">Livia da Hora</div>
     <div class="nav-left">
       <a href="#projects">Work</a>
       <a href="contact.html">Contact</a>
     </div>
+    <div class="logo">Livia da Hora</div>
   </nav>
 
   <header>
