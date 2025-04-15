@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contato - Livia da Hora</title>
+  <style>
+    html {
+      overflow-y: scroll;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: white;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 42px 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .nav-left {
+      position: absolute;
+      left: 40px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-left a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-left a:hover {
+      color: white;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: white;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    main {
+      padding-top: 140px;
+      text-align: center;
+      min-height: 80vh;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #888;
+    }
+  </style>
+
+  <script src="https://kit.fontawesome.com/24482fa998.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <a href="index.html#projetos">Work</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="logo">Livia da Hora</div>
+  </nav>
+
+  <main>
+    <h1>Contact me!</h1>
+    <p>Reach out before the final cut.</p>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/livmmaia/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/livia-da-hora-5a6594248/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="mailto:hora.mlivia@gmail.com" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>
