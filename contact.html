@@ -57,6 +57,38 @@
       white-space: nowrap;
     }
 
+    .hamburger {
+      display: none;
+      position: absolute;
+      left: 20px;
+      font-size: 1.6rem;
+      color: white;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 15%;
+      background-color: black;
+      padding: 100px 20px 20px;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 1050;
+      height: 10vh;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
     main {
       padding-top: 140px;
       text-align: center;
@@ -90,18 +122,52 @@
     .social-icons a:hover {
       color: #888;
     }
-  </style>
 
+    @media (max-width: 768px) {
+      .nav-left {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      nav .logo {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .mobile-menu.show {
+        display: flex;
+      }
+    }
+  </style>
   <script src="https://kit.fontawesome.com/24482fa998.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
   <nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
     <div class="nav-left">
-      <a href="index.html#projetos">Work</a>
+      <a href="index.html#projects">Work</a>
       <a href="contact.html">Contact</a>
     </div>
     <div class="logo">Livia da Hora</div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html#projects" onclick="toggleMenu()">Work</a>
+      <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    </div>
   </nav>
 
   <main>
@@ -120,6 +186,17 @@
       </a>
     </div>
   </main>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+      }
+    }
+  </script>
 
 </body>
 </html>
