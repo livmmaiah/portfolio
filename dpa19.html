@@ -2,14 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Detetives do Prédio Azul 19 - Livia da Hora</title>
   <style>
-    .content-wrapper {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -58,6 +53,38 @@
       white-space: nowrap;
     }
 
+    .hamburger {
+      display: none;
+      position: absolute;
+      left: 20px;
+      font-size: 1.6rem;
+      color: white;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 15%;
+      background-color: black;
+      padding: 100px 20px 20px;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 1050;
+      height: auto;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
     main {
       padding: 60px 40px;
       max-width: 1200px;
@@ -65,6 +92,11 @@
       background-color: #1a1a1a;
       border-radius: 20px;
       box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .content-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     h1 {
@@ -112,15 +144,60 @@
       background: #333;
       margin: 50px 0;
     }
+
+    @media (max-width: 768px) {
+      .nav-left {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .mobile-menu.show {
+        display: flex;
+      }
+
+      nav .logo {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      iframe {
+        height: 250px;
+      }
+    }
   </style>
+  <script src="https://kit.fontawesome.com/24482fa998.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
   <nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
     <div class="nav-left">
-      <a href="index.html#projetos">Work</a>
+      <a href="index.html#projects">Work</a>
       <a href="contact.html">Contact</a>
     </div>
     <div class="logo">Livia da Hora</div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html#projects" onclick="toggleMenu()">Work</a>
+      <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    </div>
   </nav>
 
   <main>
@@ -129,15 +206,30 @@
       <h2>Blue Building Detectives 19</h2>
 
       <p><strong>Project Summary:</strong><br>
-        Detetives do Prédio Azul is a Brazilian children's series that premiered on Gloob in 2012. The show follows three inseparable friends who live in a building, home to witches and other mystical characters. The kids spend their time playing detectives, solving mysteries, and uncovering secrets hidden within the building’s walls. </p> 
+        Detetives do Prédio Azul is a Brazilian children's series that premiered on Gloob in 2012. The show follows three inseparable friends who live in a building, home to witches and other mystical characters. The kids spend their time playing detectives, solving mysteries, and uncovering secrets hidden within the building’s walls.
+      </p> 
+
       <iframe src="https://www.youtube.com/embed/rT-GJXWihpU?si=QOsmwgbg3oMzimG8" allowfullscreen></iframe>
 
       <hr>
 
       <p><strong>My Role:</strong><br>
-      <em>Post-Production Intern</em>
-      Worked closely with directors and the post-production team to ensure smooth communication and workflow. Responsibilities included reviewing episodes to identify and list all special effects, tracking deadlines, updating key post-production documents such as cue sheets, and assisting with the preparation of final deliveries.</p>
+        <em>Post-Production Intern</em>
+        Worked closely with directors and the post-production team to ensure smooth communication and workflow. Responsibilities included reviewing episodes to identify and list all special effects, tracking deadlines, updating key post-production documents such as cue sheets, and assisting with the preparation of final deliveries.
+      </p>
     </div>
   </main>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+      }
+    }
+  </script>
+
 </body>
 </html>
