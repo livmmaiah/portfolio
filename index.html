@@ -23,7 +23,7 @@
       width: 100%;
       background-color: #111;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 42px 0;
       z-index: 1000;
@@ -52,10 +52,40 @@
       font-weight: bold;
       font-size: 1.4rem;
       color: white;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
       white-space: nowrap;
+    }
+
+    .hamburger {
+      display: none;
+      position: absolute;
+      left: 20px;
+      font-size: 1.6rem;
+      color: white;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    .mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15vw;
+  background-color: black;
+  padding: 100px 20px 20px;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1050;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+  height: auto; /* <-- aqui está o ajuste principal */
+}
+
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      font-size: 1.2rem;
     }
 
     header {
@@ -73,7 +103,6 @@
       font-size: 4rem;
       margin-bottom: 1rem;
       transition: opacity 0.5s ease;
-      text-decoration: none;
     }
 
     .subtitle {
@@ -95,16 +124,6 @@
       padding: 40px;
     }
 
-    @media (max-width: 768px) {
-      .grid-projects {
-        grid-template-columns: 1fr;
-      }
-
-      .project-card img {
-        height: 200px;
-      }
-    }
-
     .project-card {
       display: flex;
       flex-direction: column;
@@ -113,6 +132,7 @@
       text-align: center;
       height: 100%;
       text-decoration: none;
+      transition: transform 0.3s;
     }
 
     .project-card img {
@@ -163,16 +183,59 @@
     #topBtn:hover {
       background-color: #888;
     }
+
+    @media (max-width: 768px) {
+      .nav-left {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .mobile-menu.show {
+        display: flex;
+      }
+
+      nav .logo {
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+      }
+
+      .grid-projects {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card img {
+        height: 200px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
   </style>
   <script src="https://kit.fontawesome.com/24482fa998.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
     <div class="nav-left">
       <a href="#projects">Work</a>
       <a href="contact.html">Contact</a>
     </div>
     <div class="logo">Livia da Hora</div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#projects" onclick="toggleMenu()">Work</a>
+      <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    </div>
   </nav>
 
   <header>
@@ -252,7 +315,12 @@
     };
 
     function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("show");
     }
   </script>
 </body>
